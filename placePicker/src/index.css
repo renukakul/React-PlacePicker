@@ -93,7 +93,7 @@ header p {
 }
 
 .place-item button {
-  background: transparent;
+  background: scroll;
   border: none;
   padding: 0;
   transition: all 0.2s ease-in-out;
