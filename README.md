@@ -149,3 +149,37 @@ Dependency Array:
 
 The empty dependency array [] ensures that the useEffect runs only once when the component mounts. Since there are no dependencies, the effect doesn't depend on any changing values.
 In summary, this useEffect sets up a timer to execute a function after a delay, and the cleanup function ensures that the timer is cleared if the component is unmounted before the scheduled function execution. This pattern is commonly used for delayed actions, like displaying a message for a short duration or triggering some behavior after a specific timeout.
+
+# Dependencies
+
+Certainly! In React, the `useEffect` hook is used for managing side effects in functional components. The hook takes two arguments: a function that contains the code for the effect, and an optional array of dependencies.
+
+- **No Dependencies (`[]`):** If the dependencies array is empty, the effect runs once after the initial render, similar to `componentDidMount` in class components.
+
+  ```jsx
+  useEffect(() => {
+    // Code to run after the initial render
+    // ...
+
+    return () => {
+      // Cleanup code (optional)
+      // ...
+    };
+  }, []);
+  ```
+
+- **With Dependencies:** If you provide dependencies in the array, the effect will run whenever any of those dependencies change.
+
+  ```jsx
+  useEffect(() => {
+    // Code to run when dependencies change
+    // ...
+
+    return () => {
+      // Cleanup code (optional)
+      // ...
+    };
+  }, [dependency1, dependency2]);
+  ```
+
+Understanding and correctly specifying dependencies is crucial for controlling when the effect runs and for optimizing the performance of your React components. It helps ensure that the effect runs only when necessary and avoids unnecessary re-renders.
